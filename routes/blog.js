@@ -7,7 +7,11 @@ router.get("/", (req, res) => {
   res.render("home");
 });
 
-router.get("/blogs", (req, res) => {});
+router.get("/blogs", (req, res) => {
+  res.render("blogHome", {
+    blogs: blogs,
+  });
+});
 
 router.get("/blogpost/:slug", (req, res) => {
   myBlog = blogs.filter((e) => {
@@ -15,7 +19,9 @@ router.get("/blogpost/:slug", (req, res) => {
       return e;
     }
   });
-  res.status(200).sendFile(path.join(__dirname, "../templates/blogPage.html"));
+  res.status(200).render("blogPost", {
+    blog: myBlog[0],
+  });
 });
 
 module.exports = router;

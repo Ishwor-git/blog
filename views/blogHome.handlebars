@@ -1,3 +1,13 @@
-{{#each people}}
-  <li>{{this}}</li>
+{{#each blogs}}
+<div class = "d-flex align-content-start flex-wrap">
+
+  <div class="card" style="width: 18rem; margin:0.5rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{this.title}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{this.slug}}</h6>
+      <p class="card-text">{{this.info}}</p>
+      <a href="blogpost/{{this.slug}}" class="btn btn-primary">Read full article</a>
+    </div>
+  </div>
 {{/each}}
+</div>
