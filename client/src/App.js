@@ -1,11 +1,11 @@
+import Navbar from "./components/navbar";
+import NavDrawer from "./components/navDrawer";
 
 function App() {
   return (
-    <div className="App">
-      <h1>
-        Hello World
-      </h1>
-    </div>
+    <>
+      <NavDrawer />
+    </>
   );
 }
 
