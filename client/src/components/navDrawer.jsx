@@ -3,49 +3,64 @@ import {
   List,
   ListItem,
   ListItemButton,
-  ListItemIcon,
   ListItemText,
   Divider,
   Box,
-  Typography,
 } from "@mui/material";
-import BookOutlinedIcon from "@mui/icons-material/BookOutlined";
-import React from "react";
-const NavDrawer = ({ navList = ["Tab1", "Tab2"] }) => {
+const NavDrawer = ({ open, setOpen, navList }) => {
   return (
     <>
-      <Drawer open={1}>
+      <Drawer
+        open={open}
+        onClose={setOpen(false)}
+        PaperProps={{
+          sx: {
+            backgroundColor: "#153e7e",
+            color: "#c6c6c6",
+          },
+        }}
+      >
         <Box
           sx={{
             width: 250,
           }}
           role="presentation"
         >
-          <Box
-            sx={{
-              display: "flex",
-              alignSelf: "center",
-              my: "1rem",
-              ml: "1.7rem",
-            }}
-          >
-            <Typography sx={{ mx: "0.2rem" }}>
-              <BookOutlinedIcon />
-            </Typography>
-            <Typography variant="h5" component="div" sx={{}}>
-              B1tB0tByte
-            </Typography>
-          </Box>
           <List>
             {navList.map((text) => {
               return (
-                <ListItem key={text}>
+                <ListItem disablePadding>
                   <ListItemButton>
-                    <ListItemText primary={text} />
+                    <ListItemText
+                      color="inherit"
+                      sx={{ color: "#c6c6c6" }}
+                      primary={text}
+                    />
                   </ListItemButton>
                 </ListItem>
               );
             })}
+          </List>
+          <Divider sx={{ borderColor: "#828282" }} />
+          <List>
+            <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemText
+                  color="inherit"
+                  sx={{ color: "#c6c6c6" }}
+                  primary="Source Code"
+                />
+              </ListItemButton>
+            </ListItem>
+            <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemText
+                  color="inherit"
+                  sx={{ color: "#c6c6c6" }}
+                  primary="Github"
+                />
+              </ListItemButton>
+            </ListItem>
           </List>
         </Box>
       </Drawer>
