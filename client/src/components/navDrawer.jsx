@@ -7,7 +7,9 @@ import {
   Divider,
   Box,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 const NavDrawer = ({ open, setOpen, navList }) => {
+  const navigate = useNavigate();
   return (
     <>
       <Drawer
@@ -28,9 +30,15 @@ const NavDrawer = ({ open, setOpen, navList }) => {
         >
           <List>
             {navList.map((text) => {
+              const slug = text.toLowerCase().replace(/\s+/g, "-");
               return (
                 <ListItem disablePadding>
-                  <ListItemButton>
+                  <ListItemButton
+                    onClick={() => {
+                      setOpen(false);
+                      navigate(`/${slug}`);
+                    }}
+                  >
                     <ListItemText
                       color="inherit"
                       sx={{ color: "#c6c6c6" }}

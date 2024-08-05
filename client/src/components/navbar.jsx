@@ -10,15 +10,16 @@ import {
   Button,
 } from "@mui/material";
 import { useTheme, useMediaQuery } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import BookOutlinedIcon from "@mui/icons-material/BookOutlined";
 import CodeIcon from "@mui/icons-material/Code";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import NavDrawer from "./navDrawer";
 import MenuIcon from "@mui/icons-material/Menu";
-
 const Navbar = () => {
   const navbarTabs = ["Blogs", "Post", "Contact Us", "About Us"];
   const [indicatorValve, setIndicatorValve] = useState();
+  const navigate = useNavigate();
 
   const [openDrawer, setOpenDrawer] = useState(false);
   const toggleDrawer = (newOpen) => () => {
@@ -64,10 +65,22 @@ const Navbar = () => {
               </>
             ) : (
               <>
-                <Typography sx={{ mx: "0.2rem" }}>
+                <Typography
+                  sx={{ mx: "0.2rem", cursor: "pointer" }}
+                  onClick={() => {
+                    navigate("/");
+                  }}
+                >
                   <BookOutlinedIcon />
                 </Typography>
-                <Typography variant="h5" component="div" sx={{}}>
+                <Typography
+                  variant="h5"
+                  component="div"
+                  sx={{ cursor: "pointer" }}
+                  onClick={() => {
+                    navigate("/");
+                  }}
+                >
                   B1tB0tByte
                 </Typography>
                 <Tabs
@@ -77,8 +90,17 @@ const Navbar = () => {
                   indicatorColor="primary"
                   onChange={(e, value) => setIndicatorValve(value)}
                 >
-                  {navbarTabs.map((link) => {
-                    return <Tab label={`${link}`} />;
+                  {navbarTabs.map((text) => {
+                    const slug = text.toLowerCase().replace(/\s+/g, "-");
+                    return (
+                      <Tab
+                        key={text}
+                        label={text}
+                        onClick={() => {
+                          navigate(`/${slug}`);
+                        }}
+                      />
+                    );
                   })}
                 </Tabs>
                 <Button
