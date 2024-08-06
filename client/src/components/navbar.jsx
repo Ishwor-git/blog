@@ -33,7 +33,7 @@ const Navbar = () => {
     <>
       <Box sx={{ flexGrow: 1 }}>
         <AppBar
-          position="static"
+          position="fixed"
           color="primary"
           sx={{ boxSizing: "border-box", backgroundColor: "#182e54" }}
         >

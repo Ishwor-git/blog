@@ -12,6 +12,7 @@ import Blogs from "./pages/blogs";
 import Post from "./pages/post";
 import Contact from "./pages/contact";
 import About from "./pages/about";
+import { Box, Container } from "@mui/material";
 function App() {
   // const router = createBrowserRouter([
   //   { path: "", element: <Home /> },
@@ -30,13 +31,15 @@ function App() {
     <>
       <Router>
         <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="blogs" element={<Blogs />} />
-          <Route path="post" element={<Post />} />
-          <Route path="contact-us" element={<Contact />} />
-          <Route path="about-us" element={<About />} />
-        </Routes>
+        <Box sx={{ mt: 8 }}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="blogs" element={<Blogs />} />
+            <Route path="post" element={<Post />} />
+            <Route path="contact-us" element={<Contact />} />
+            <Route path="about-us" element={<About />} />
+          </Routes>
+        </Box>
       </Router>
       ;
     </>
