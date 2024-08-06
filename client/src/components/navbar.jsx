@@ -33,7 +33,7 @@ const Navbar = () => {
     <>
       <Box sx={{ flexGrow: 1 }}>
         <AppBar
-          position="fixed"
+          position="static"
           color="primary"
           sx={{ boxSizing: "border-box", backgroundColor: "#182e54" }}
         >
@@ -68,6 +68,7 @@ const Navbar = () => {
                 <Typography
                   sx={{ mx: "0.2rem", cursor: "pointer" }}
                   onClick={() => {
+                    setIndicatorValve("");
                     navigate("/");
                   }}
                 >
@@ -78,6 +79,7 @@ const Navbar = () => {
                   component="div"
                   sx={{ cursor: "pointer" }}
                   onClick={() => {
+                    setIndicatorValve("");
                     navigate("/");
                   }}
                 >
