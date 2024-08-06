@@ -6,10 +6,10 @@ import FilterSection from "../components/filterSection";
 const Blogs = () => {
   return (
     <>
-      <Box sx={{ display: "flex" }}>
+      <Box sx={{ display: "flex", mt: -7 }}>
         <FilterSection />
         <Container sx={{ flexGrow: 1, P: 3, ml: 8, mr: 8 }}>
-          <Grid container spacing={3}>
+          <Grid container spacing={4}>
             <Grid item xs={12} sm={6} md={4} key={0}>
               <BlogCard />
             </Grid>

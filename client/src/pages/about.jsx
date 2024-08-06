@@ -26,6 +26,7 @@ const About = () => {
           alignItems: "center",
           justifyContent: "center",
           p: 3,
+          mt: -7,
         }}
       >
         <Container maxWidth="md">

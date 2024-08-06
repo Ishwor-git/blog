@@ -61,7 +61,7 @@ const SubmitBlog = () => {
         alignItems: "center",
         justifyContent: "center",
         minHeight: "100vh",
-        mt: -6,
+        mt: -7,
         bgcolor: "#f5f5f5",
         overflowY: "hidden",
       }}

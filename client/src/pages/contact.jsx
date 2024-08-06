@@ -36,7 +36,7 @@ const Contact = () => {
         alignItems: "center",
         justifyContent: "center",
         minHeight: "100vh",
-        mt: -8, // Adjust if needed to compensate for navbar height
+        mt: -7, // Adjust if needed to compensate for navbar height
       }}
     >
       <Container maxWidth="sm">

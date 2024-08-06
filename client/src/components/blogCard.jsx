@@ -11,7 +11,7 @@ import {
 const BlogCard = () => {
   return (
     <>
-      <Card sx={{ maxWidth: "28rem", margin: "1rem" }}>
+      <Card sx={{ maxWidth: "28rem" }}>
         <CardMedia
           component="img"
           alt="motherboard"
