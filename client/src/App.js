@@ -9,9 +9,9 @@ import {
 } from "react-router-dom";
 import Home from "./pages/home";
 import Blogs from "./pages/blogs";
-import Post from "./pages/post";
 import Contact from "./pages/contact";
 import About from "./pages/about";
+import SubmitBlog from "./pages/submitBlog";
 import { Box, Container } from "@mui/material";
 function App() {
   // const router = createBrowserRouter([
@@ -35,7 +35,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="blogs" element={<Blogs />} />
-            <Route path="post" element={<Post />} />
+            <Route path="post" element={<SubmitBlog />} />
             <Route path="contact-us" element={<Contact />} />
             <Route path="about-us" element={<About />} />
           </Routes>
