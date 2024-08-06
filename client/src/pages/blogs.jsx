@@ -1,7 +1,12 @@
 import React from "react";
+import BlogCard from "../components/blogCard";
 
 const Blogs = () => {
-  return <div>Blogs</div>;
+  return (
+    <>
+      <BlogCard />
+    </>
+  );
 };
 
 export default Blogs;
