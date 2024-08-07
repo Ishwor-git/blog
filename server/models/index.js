@@ -1,7 +1,14 @@
 const mongoose = require("mongoose");
-mongoose.connect(
-  "mongodb+srv://hydra:dbHydra@cluster0.e0h72.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-);
+require("dotenv").config();
+const user = process.env.MONGO_USERNAME;
+const password = process.env.MONGO_PASSWORD;
+const host = process.env.MONGO_HOST;
+const cluster = process.env.DB_CLUSTER;
+
+console.log(user, password, host, cluster);
+
+const mongoUri = `mongodb+srv://${user}:${password}@${host}/?retryWrites=true&w=majority&appName=${cluster}`;
+mongoose.connect(mongoUri);
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
