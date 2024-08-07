@@ -1,8 +1,7 @@
 const mongoose = require("mongoose");
-mongoose.connect("url/to/db", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(
+  "mongodb+srv://hydra:dbHydra@cluster0.e0h72.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+);
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
