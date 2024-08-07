@@ -4,6 +4,7 @@ const path = require("path");
 const port = 5000;
 const mongoose = require("./models");
 
+app.use(express.json());
 app.use("/", require(path.join(__dirname, "routes/routes.js")));
 
 app.listen(port, (req, res) => {
