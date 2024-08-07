@@ -9,7 +9,7 @@ router.get("/test", (req, res) => {
 
 router.get("/", async (req, res) => {
   try {
-    const blogs = await Blog.find();
+    const blogs = await Blog.find({ accepted: true });
     res.json(blogs);
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -28,7 +28,7 @@ router.post("/", async (req, res) => {
 
 router.get("/id/:id", async (req, res) => {
   try {
-    const blog = await Blog.findById(req.params.id);
+    const blog = await Blog.find({ accepted: true }).findById(req.params.id);
     res.json(blog);
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -43,6 +43,7 @@ router.get("/search", async (req, res) => {
     }
     const regex = new RegExp(search, "i");
     const blogs = await Blog.find({
+      accepted: true,
       $or: [{ title: regex }, { author: regex }, { ["description"]: regex }],
     });
     res.json(blogs);
@@ -54,7 +55,7 @@ router.get("/search", async (req, res) => {
 router.get("/filter", async (req, res) => {
   try {
     const { author, catagory, tags, startDate, endDate } = req.query;
-    const filter = {};
+    const filter = { accepted: true };
     if (author) {
       filter.author = author;
     }

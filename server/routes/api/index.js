@@ -8,5 +8,6 @@ router.get("/test", (req, res) => {
 
 router.use("/blogs", require(path.join(__dirname, "blogs.js")));
 router.use("/contact", require(path.join(__dirname, "contact.js")));
+router.use("/admin", require(path.join(__dirname, "admin.js")));
 
 module.exports = router;

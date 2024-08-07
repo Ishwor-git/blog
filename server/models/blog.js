@@ -29,6 +29,16 @@ const BlogSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    reviewed: {
+      type: Boolean,
+      required: true,
+      default: false,
+    },
+    accepted: {
+      type: Boolean,
+      required: true,
+      default: false,
+    },
   },
   { timestamps: true }
 );
