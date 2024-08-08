@@ -5,7 +5,7 @@ const password = process.env.MONGO_PASSWORD;
 const host = process.env.MONGO_HOST;
 const cluster = process.env.DB_CLUSTER;
 
-console.log(user, password, host, cluster);
+// console.log(user, password, host, cluster);
 
 const mongoUri = `mongodb+srv://${user}:${password}@${host}/?retryWrites=true&w=majority&appName=${cluster}`;
 mongoose.connect(mongoUri);

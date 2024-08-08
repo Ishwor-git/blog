@@ -1,8 +1,7 @@
 const mongoose = require("mongoose");
 const bycrypt = require("bcryptjs");
-const { use } = require("../routes/routes");
 
-const UserSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
   username: {
     type: String,
     required: true,
@@ -27,6 +26,6 @@ userSchema.methods.comparePassword = async function (password) {
   return await bycrypt.compare(password, user.password);
 };
 
-const User = mongoose.model("User", UserSchema);
+const User = mongoose.model("User", userSchema);
 
 module.exports = User;
