@@ -61,7 +61,7 @@ const SubmitBlog = () => {
         alignItems: "center",
         justifyContent: "center",
         minHeight: "100vh",
-        mt: -7,
+        mt: 1,
         bgcolor: "#f5f5f5",
         overflowY: "hidden",
       }}
@@ -134,13 +134,13 @@ const SubmitBlog = () => {
                   required
                   fullWidth
                   id="description"
-                  label="Description (less than 50 words)"
+                  label="Description (less than 20 words)"
                   name="description"
                   value={form.description}
                   onChange={handleChange}
                   multiline
                   rows={2}
-                  inputProps={{ maxLength: 50 }}
+                  inputProps={{ maxLength: 20 }}
                 />
               </Grid>
               <Grid item xs={12}>

@@ -24,7 +24,7 @@ const Home = () => {
         autoPlay={true}
         animation="fade"
         duration={500}
-        sx={{ mt: -7 }}
+        sx={{ mt: 1 }}
       >
         {carouselItems.map((item, index) => (
           <Box
