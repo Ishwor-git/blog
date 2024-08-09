@@ -7,6 +7,13 @@ router.get("/test", (req, res) => {
   res.send({ data: "testing contact" });
 });
 
+// router.get("/testCredentials", (req, res) => {
+//   res.json({
+//     username: process.env.ETHEREAL_USER,
+//     password: process.env.ETHEREAL_PASSWORD,
+//     contact_email: process.env.CONTACT_EMAIL,
+//   });
+// });
 router.post("/", async (req, res) => {
   const { name, email, message } = req.body;
   if (!name || !email || !message) {
@@ -14,10 +21,11 @@ router.post("/", async (req, res) => {
   }
   try {
     const transporter = nodeMailer.createTransport({
-      service: "gamail",
+      host: "smtp.ethereal.email",
+      port: 587,
       auth: {
-        user: process.env.EMAIL,
-        pass: process.env.PASSWORD,
+        user: process.env.ETHEREAL_USER,
+        pass: process.env.ETHEREAL_PASSWORD,
       },
     });
     const mailOptions = {
