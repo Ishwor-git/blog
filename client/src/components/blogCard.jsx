@@ -7,11 +7,13 @@ import {
   Button,
   Typography,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
-const BlogCard = () => {
+const BlogCard = ({ title, author, description }) => {
+  const navigate = useNavigate();
   return (
     <>
-      <Card sx={{ maxWidth: "28rem" }}>
+      <Card sx={{ maxWidth: "28rem" }} onClick={navigate()}>
         <CardMedia
           component="img"
           alt="motherboard"

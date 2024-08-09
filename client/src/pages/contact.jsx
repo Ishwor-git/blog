@@ -13,6 +13,7 @@ const Contact = () => {
   const [form, setForm] = useState({
     name: "",
     email: "",
+    subject: "",
     message: "",
   });
 
@@ -36,7 +37,7 @@ const Contact = () => {
         alignItems: "center",
         justifyContent: "center",
         minHeight: "100vh",
-        mt: -7, // Adjust if needed to compensate for navbar height
+        mt: -7,
       }}
     >
       <Container maxWidth="sm">
@@ -66,6 +67,18 @@ const Contact = () => {
                   name="email"
                   type="email"
                   value={form.email}
+                  onChange={handleChange}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  id="subject"
+                  label="Subject"
+                  name="subject"
+                  type="subject"
+                  value={form.subject}
                   onChange={handleChange}
                 />
               </Grid>
