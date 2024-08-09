@@ -16,7 +16,8 @@
     "express-handlebars": "^7.1.2",
     "find-config": "^1.0.0",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.5.2"
+    "mongoose": "^8.5.2",
+    "nodemailer": "^6.9.14"
   },
   "devDependencies": {
     "nodemon": "^3.0.2"
