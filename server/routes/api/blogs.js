@@ -28,7 +28,7 @@ router.post("/", async (req, res) => {
 
 router.get("/id/:id", async (req, res) => {
   try {
-    const blog = await Blog.find({ accepted: true }).findById(req.params.id);
+    const blog = await Blog.find({ _id: req.params.id });
     res.json(blog);
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -81,6 +81,19 @@ router.get("/filter", async (req, res) => {
     res.json(blogs);
   } catch (err) {
     res.status(500).json({ error: err.message });
+  }
+  {
+    blogs.content.split("\n").map((para, index) => (
+      <Typography
+        key={index}
+        variant="body1"
+        color="text.primary"
+        paragraph
+        sx={{ mb: 2 }}
+      >
+        {para}
+      </Typography>
+    ));
   }
 });
 
