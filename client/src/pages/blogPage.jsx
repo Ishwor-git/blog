@@ -4,18 +4,30 @@ import { useParams } from "react-router-dom";
 import { Container, Box, Typography, Avatar, Paper } from "@mui/material";
 
 const BlogPage = () => {
-  const [blogs, setBlogs] = useState({});
+  const [blog, setBlog] = useState({});
   const { id } = useParams();
   const getBlog = async () => {
-    const response = await axios.get(
-      `http://localhost:5000/api/blogs/id/${id}`
-    );
-    // console.log(response.data);
-    setBlogs(response.data[0]);
+    try {
+      const response = await axios.get(
+        `http://localhost:5000/api/blogs/id/${id}`
+      );
+      let data = response.data;
+
+      if (Array.isArray(data)) {
+        data = data[0];
+      }
+
+      setBlog(data);
+    } catch (error) {
+      console.error("Error fetching blog:", error);
+    }
   };
+
   useEffect(() => {
     getBlog();
-  }, []);
+    console.log(blog);
+  }, [id]);
+  if (!blog) return <Typography>Loading...</Typography>;
 
   return (
     <>
@@ -46,7 +58,7 @@ const BlogPage = () => {
             }}
           >
             <Typography variant="h4" component="h1">
-              {blogs.title}
+              {blog.title}
             </Typography>
           </Paper>
         </Box>
@@ -56,21 +68,25 @@ const BlogPage = () => {
           <Box sx={{ display: "flex", alignItems: "center", mb: 4 }}>
             <Avatar alt="Author Name" src="/images/author.jpg" sx={{ mr: 2 }} />
             <Typography variant="subtitle1" color="text.secondary">
-              By {blogs.author}
+              By {blog.author}
             </Typography>
           </Box>
 
-          {blogs.content.split("\n").map((para, index) => (
-            <Typography
-              key={index}
-              variant="body1"
-              color="text.primary"
-              paragraph
-              sx={{ mb: 2 }}
-            >
-              {para}
-            </Typography>
-          ))}
+          {blog.content ? (
+            blog.content.split("\n").map((para, index) => (
+              <Typography
+                key={index}
+                variant="body1"
+                color="text.primary"
+                paragraph
+                sx={{ mb: 2 }}
+              >
+                {para}
+              </Typography>
+            ))
+          ) : (
+            <Typography variant="body1">Content not available</Typography>
+          )}
         </Box>
       </Container>
     </>

@@ -82,19 +82,6 @@ router.get("/filter", async (req, res) => {
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
-  {
-    blogs.content.split("\n").map((para, index) => (
-      <Typography
-        key={index}
-        variant="body1"
-        color="text.primary"
-        paragraph
-        sx={{ mb: 2 }}
-      >
-        {para}
-      </Typography>
-    ));
-  }
 });
 
 module.exports = router;
