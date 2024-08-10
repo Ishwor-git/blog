@@ -4,10 +4,6 @@ const path = require("path");
 const jwt = require("jsonwebtoken");
 const User = require("../../models/user");
 
-router.get("/test", (req, res) => {
-  res.send({ data: "testing admin auth" });
-});
-
 router.post("/login", async (req, res) => {
   const { username, password } = req.body;
   const user = await User.findOne({ username });

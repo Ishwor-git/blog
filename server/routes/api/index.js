@@ -12,6 +12,7 @@ router.get("/test", (req, res) => {
 
 router.use("/blogs", require(path.join(__dirname, "blogs.js")));
 router.use("/contact", contactRoutes);
+router.use("/auth", require(path.join(__dirname, "auth.js")));
 router.use("/admin", authMiddleware, adminRoutes);
 
 module.exports = router;

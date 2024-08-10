@@ -3,8 +3,6 @@ const router = express.Router();
 const path = require("path");
 const Blog = require("../../models/blog");
 
-router.use("/auth", require(path.join(__dirname, "auth.js")));
-
 router.get("/test", (req, res) => {
   res.send({ data: "testing api admin" });
 });
