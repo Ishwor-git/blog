@@ -16,7 +16,7 @@ import CodeIcon from "@mui/icons-material/Code";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import NavDrawer from "./navDrawer";
 import MenuIcon from "@mui/icons-material/Menu";
-const Navbar = () => {
+const BlogNavbar = () => {
   const navbarTabs = ["Blogs", "Post", "Contact Us", "About Us"];
   const [indicatorValve, setIndicatorValve] = useState();
   const navigate = useNavigate();
@@ -130,4 +130,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default BlogNavbar;
