@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  Drawer,
   List,
   ListItem,
   ListItemText,
@@ -10,11 +9,10 @@ import {
   Box,
   TextField,
   Checkbox,
-  FormControlLabel,
   Button,
   Paper,
 } from "@mui/material";
-import { Search, DateRange, Category, Tag } from "@mui/icons-material";
+import { Search } from "@mui/icons-material";
 
 const FilterSection = () => {
   const categories = ["Technology", "Health", "Finance", "Lifestyle"];
