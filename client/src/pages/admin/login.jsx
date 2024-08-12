@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   TextField,
   Button,
@@ -7,8 +7,17 @@ import {
   Container,
   Paper,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const [credentials, setCredentials] = useState({ usename: "", password: "" });
+  const navigate = useNavigate();
+  const handleChange = (e) => {
+    setCredentials({ ...credentials, [e.target.name]: e.target.value });
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+  };
   return (
     <Container maxWidth="sm">
       <Paper
@@ -30,21 +39,26 @@ const Login = () => {
           }}
           noValidate
           autoComplete="off"
+          onSubmit={handleSubmit}
         >
           <TextField
-            label="Email"
+            label="username"
             variant="outlined"
             fullWidth
             required
             sx={{ mb: 3, backgroundColor: "#ffffff" }}
+            name="username"
+            onChange={handleChange}
           />
           <TextField
-            label="Password"
+            label="password"
             variant="outlined"
             type="password"
             fullWidth
             required
             sx={{ mb: 3, backgroundColor: "#ffffff" }}
+            name="password"
+            onChange={handleChange}
           />
           <Button
             variant="contained"
@@ -59,9 +73,6 @@ const Login = () => {
           >
             Login
           </Button>
-          <Typography variant="body2" sx={{ color: "#b71c1c" }}>
-            Forgot your password?
-          </Typography>
         </Box>
       </Paper>
     </Container>
