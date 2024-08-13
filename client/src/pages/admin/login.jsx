@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import {
   TextField,
   Button,
@@ -10,13 +11,38 @@ import {
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const [credentials, setCredentials] = useState({ usename: "", password: "" });
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      navigate("/admin/dashboard");
+    }
+  }, []);
+
+  const [credentials, setCredentials] = useState({
+    username: "",
+    password: "",
+  });
   const navigate = useNavigate();
   const handleChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
+    try {
+      const { data } = await axios.post(
+        "http://localhost:5000/api/auth/login",
+        credentials
+      );
+      console.log(data);
+      if (data.success) {
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("username", data.username);
+        navigate("/admin/dashboard");
+      } else {
+        alert(data.message);
+      }
+    } catch (error) {
+      alert(error.message);
+    }
   };
   return (
     <Container maxWidth="sm">
