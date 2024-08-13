@@ -5,8 +5,9 @@ const app = express();
 const port = process.env.PORT || 6000;
 const mongoose = require("./models");
 const cors = require("cors");
+const bodyParser = require("body-parser");
 // const { createAdmin } = require("./generator/admin");
-app.use(express.json());
+app.use(bodyParser.json());
 app.use(
   cors({
     origin: "http://localhost:3000",
