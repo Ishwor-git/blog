@@ -9,12 +9,12 @@ const authMiddleware = async (req, res, next) => {
     return res.status(403).json({ error: "Error : Empty or invalid token" });
   }
 
-  const decoded = jwt.varify(token, process.env.ACCESS_TOKEN_SECRET);
+  const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
   console.log(decoded);
   if (!decoded) {
     return res.status(401).json({ error: "Error : Invalid token" });
   }
-  const user = await User.findById(decoded.id);
+  const user = decoded;
   if (!user) {
     return res.status(404).json({ error: "Error : User not found" });
   }
