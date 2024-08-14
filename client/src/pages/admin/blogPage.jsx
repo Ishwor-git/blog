@@ -1,27 +1,8 @@
-import { React, useState, useEffect } from "react";
+import React, { useState, useEffect, useParams } from "react";
+import { Box, Container, Typography, Paper, Avatar } from "@mui/material";
 import axios from "axios";
-import { useParams } from "react-router-dom";
-import {
-  Container,
-  Box,
-  Typography,
-  Avatar,
-  Paper,
-  Button,
-} from "@mui/material";
-import useTokenValidation from "../auth/tokenValidtioin";
-import { useNavigate } from "react-router-dom";
 
-const BlogPage = ({ admin = false }) => {
-  const validToken = useTokenValidation();
-  const navigete = useNavigate();
-  useEffect(() => {
-    if (admin) {
-      if (!validToken) {
-        navigete("/admin/login");
-      }
-    }
-  }, []);
+const AdminBlogPage = () => {
   const [blog, setBlog] = useState({});
   const { id } = useParams();
   const getBlog = async () => {
@@ -106,31 +87,9 @@ const BlogPage = ({ admin = false }) => {
             <Typography variant="body1">Content not available</Typography>
           )}
         </Box>
-        {admin && (
-          <Box sx={{ display: "flex", justifyContent: "space-around", mt: 4 }}>
-            <Button
-              variant="contained"
-              color="success"
-              onClick={() => {
-                console.log("Accept clicked");
-              }}
-            >
-              Accept
-            </Button>
-            <Button
-              variant="contained"
-              color="error"
-              onClick={() => {
-                console.log("Reject clicked");
-              }}
-            >
-              Reject
-            </Button>
-          </Box>
-        )}
       </Container>
     </>
   );
 };
 
-export default BlogPage;
+export default AdminBlogPage;

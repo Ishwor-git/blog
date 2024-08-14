@@ -27,6 +27,7 @@ function App() {
           <Route path="about-us" element={<About />} />
           <Route path="blogs/:id" element={<BlogPage />} />
           <Route path="admin" element={<Navigate to="/admin/login" />} />
+          <Route path="admin/blogs/:id" element={<BlogPage admin={true} />} />
           <Route path="admin/login" element={<Login />} />
           <Route path="admin/dashboard" element={<Dashboard />} />
           <Route path="*" element={<NotFound />} />

@@ -52,7 +52,11 @@ const BlogCard = ({
             <Button
               size="small"
               color="primary"
-              onClick={() => navigate(`${id}`)}
+              onClick={
+                admin
+                  ? () => navigate(`/admin/blogs/${id}`)
+                  : () => navigate(`${id}`)
+              }
             >
               Read More
             </Button>
